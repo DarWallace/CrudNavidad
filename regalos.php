@@ -79,7 +79,8 @@
                         <?php
                         foreach ($listaRegalos as $regalo) {
                             echo "<tr>";
-                            echo "<td class='text-center'><img src='" . $regalo->getFoto() . "' width='80'></td>";
+                            echo "<td class='text-center'><img src='" . $regalo->getFoto() . "' width='80'
+                            onerror=\"this.onerror=null; this.src='assets/img/generica.jpg';\"></td>";
                             echo "<td class='text-center align-content-center'>" . $regalo->getNombreRegalo() . "</td>";
                             echo "<td class='text-center align-content-center'>" . $regalo->getPrecio() . "</td>";
                             echo "<td class='text-center align-content-center'>" . $regalo->getReparteRey() . "</td>";
@@ -118,7 +119,7 @@
                     <form class="row g-3" method="post" action="funcionCrud/fRegalos.php">
                         <div class="col-lg-3 col-sm-6">
                             <label for="validationFoto" class="form-label">Foto</label>
-                            <input type="text" class="form-control" id="validationFoto" name="foto" value="<?php echo $foto; ?>" required>
+                            <input type="text" class="form-control" id="validationFoto" name="foto" value="<?php echo $foto; ?>" >
                         </div>
                         <div class="col-lg-3 col-sm-6">
                             <label for="validationNombre" class="form-label">Nombre</label>
