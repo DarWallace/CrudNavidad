@@ -58,13 +58,10 @@ class FRegalos
     }
     public function insertarRegalo($regalo)
     {
-        $foto = trim($regalo->getFoto());
-        if($foto==""||$foto==null){
-            $foto = "../assets/img/generica.jpg";
-        }
+        
         $sentenciaInser = "INSERT INTO regalos VALUE 
          (NULL,'" 
-         . $foto . "','" 
+         . $regalo->getFoto() . "','" 
          . $regalo->getNombreRegalo() . "','" 
          . $regalo->getPrecio() . "'," 
          . $regalo->getReparteRey() . ");";

@@ -33,7 +33,7 @@
     $idRegalo   = $datosRegalo ? $datosRegalo->getId()      : "";
     $nombre   = $datosRegalo ? $datosRegalo->getNombreRegalo()   : "";
     $foto = $datosRegalo ? $datosRegalo->getFoto() : "";
-    $precio    = $datosRegalo ? $datosRegalo->getPrecio()    : "";
+    $precio    = $datosRegalo ? floatval($datosRegalo->getPrecio())    : "";
     $reyMago    = $datosRegalo ? $datosRegalo->getReparteRey()    : "";
     
    
