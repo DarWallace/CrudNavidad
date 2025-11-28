@@ -78,8 +78,14 @@ class FNinos
     }
     public function borrarNino($idNino)
     {
-        $sentenciaDelete = "DELETE FROM boys WHERE idBoy = " . $idNino . ";";
-        mysqli_query($this->connection, $sentenciaDelete);
+        // Primero borrar pedidos asociados
+        $sentenciaDeletePedidos = "DELETE FROM Piden WHERE idBoyFK = $idNino";
+        mysqli_query($this->connection, $sentenciaDeletePedidos);
+
+        // Luego borrar el niño
+        $sentenciaDeleteNino = "DELETE FROM boys WHERE idBoy = $idNino";
+        mysqli_query($this->connection, $sentenciaDeleteNino);
+
     }
 
     public function __destruct()

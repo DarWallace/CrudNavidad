@@ -58,13 +58,13 @@ class FRegalos
     }
     public function insertarRegalo($regalo)
     {
-        
+
         $sentenciaInser = "INSERT INTO regalos VALUE 
-         (NULL,'" 
-         . $regalo->getFoto() . "','" 
-         . $regalo->getNombreRegalo() . "','" 
-         . $regalo->getPrecio() . "'," 
-         . $regalo->getReparteRey() . ");";
+         (NULL,'"
+            . $regalo->getFoto() . "','"
+            . $regalo->getNombreRegalo() . "','"
+            . $regalo->getPrecio() . "',"
+            . $regalo->getReparteRey() . ");";
         mysqli_query($this->connection, $sentenciaInser);
     }
     public function modificarRegalo($regalo)
@@ -81,8 +81,14 @@ class FRegalos
     }
     public function borrarRegalo($idRegalo)
     {
-        $sentenciaDelete = "DELETE FROM regalos WHERE idRegalo = " . $idRegalo . ";";
-        mysqli_query($this->connection, $sentenciaDelete);
+        // Primero borrar pedidos asociados
+        $sentenciaDeletePedidos = "DELETE FROM Piden WHERE idRegaloFK = " . $idRegalo . ";";
+        mysqli_query($this->connection, $sentenciaDeletePedidos);
+
+        // Luego borrar el regalo
+        $sentenciaDeleteRegalo = "DELETE FROM regalos WHERE idRegalo = " . $idRegalo . ";";
+        mysqli_query($this->connection, $sentenciaDeleteRegalo);
+
     }
 
     public function __destruct()

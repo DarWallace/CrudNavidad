@@ -133,7 +133,8 @@
                         foreach ($regalosNino as $regalo) {
                             echo "<tr>";
                             // echo "<td class='text-center'>" . $regalo->getId() . "</td>";
-                            echo "<td class='text-center'><img src='" . $regalo->getFoto() . "' width='80'></td>";
+                            echo "<td class='text-center'><img src='" . $regalo->getFoto() . "' width='80'
+                            onerror=\"this.onerror=null; this.src='assets/img/generica.jpg';\"></td>";
                             echo "<td class='text-center align-content-center'>" . $regalo->getNombreRegalo() . "</td>";
                             echo "<td class='text-center align-content-center'>" . $regalo->getPrecio() . "</td>";
                             echo "<td class='text-center align-content-center'>" . $regalo->getReparteRey() . "</td>";
